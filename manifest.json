@@ -14,8 +14,7 @@
     },
 
     "background": {
-        "page" : "src/background/background.html",
-        "persistent" : true
+        "page" : "src/background/background.html"
     },
 
     "permissions": ["tabs", "http://uva.onlinejudge.org/", "storage"],
