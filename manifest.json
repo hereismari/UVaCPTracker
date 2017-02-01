@@ -1,16 +1,16 @@
 {
-    "name": "SpotifYoutube",
-    "version": "0.0.2",
-    "homepage_url": "https://github.com/mari-linhares/spotifyoutube",
+    "name": "UVACPTracker",
+    "version": "0.0.0",
+    "homepage_url": "https://github.com/mari-linhares/UVACPTracker",
     "manifest_version": 2,
     
-    "description" : "Adds a button in Youtube that creates a new tab with Spotify.",
+    "description" : "Track how much of the Competitive Programming Book you have accomplished",
     
     "icons": { "16": "icons/icon.png", "48": "icons/icon.png", "128": "icons/icon.png" },
     
     "browser_action": {
         "default_icon": "icons/icon.png",
-        "default_title": "Spotify button on youtube"
+        "default_title": "Competitive Programming Tracker"
     },
 
     "background": {

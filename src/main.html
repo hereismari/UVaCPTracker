@@ -3,42 +3,30 @@
 
 	<head>
 		<meta charset="utf-8"/>
-	
+
         <title>UVa Competitive Programing Tracker</title>
-        
+
         <!-- Libraries -->
         <script type='text/javascript' src='libs/jquery.js'></script>
         <script type='text/javascript' src='libs/angular.min.js'></script>
-        
+
         <!-- Scripts -->
         <script type='text/javascript' src='main.js'></script>
 
         <!-- Style -->
         <link rel='stylesheet' type='text/css' href='main.css'>
-        
-	</head>
 
-	<!-- The ng-app directive tells angular that the code below should be evaluated -->
+	</head>
 
 	<body ng-app>
 
-		<!-- The navigation menu will get the value of the "active" variable as a class.
-			 The $event.preventDefault() stops the page from jumping when a link is clicked. -->
-
 		<nav class="{{active}}" ng-click="$event.preventDefault()">
-
-			<!-- When a link in the menu is clicked, we set the active variable -->
-
-			<p href="#" class="home" ng-click="active='home'">Insert here your user ID on UVA:</p>
-            <input type='text' ng-model='name'</input>	
+			<p href="#" class="home">Insert here your UVA user ID:</p>
+            <input type='text' ng-model='name'</input>
             <a href='#'>Don't know your ID?</a>
 		</nav>
 
-		<!-- ng-show will show an element if the value in the quotes is truthful,
-			 while ng-hide does the opposite. Because the active variable is not set
-			 initially, this will cause the first paragraph to be visible. -->
+		<p>You chose <b>{{name}}</b></p>
 
-
-             <p>You chose <b>{{name}}</b></p>
 	</body>
 </html>
