@@ -18,15 +18,17 @@
 
 	</head>
 
-	<body ng-app>
+	<body ng-app="uvacp" ng-controller="uvacp_ctrl">
 
 		<nav class="{{active}}" ng-click="$event.preventDefault()">
-			<p href="#" class="home">Insert here your UVA user ID:</p>
-            <input type='text' ng-model='name'</input>
+			<p href="#" class="home">Insert here your UVA user name:</p>
+            <input type='text' ng-model='user_name'</input>
             <a href='#'>Don't know your ID?</a>
 		</nav>
 
-		<p>You chose <b>{{name}}</b></p>
+		<button ng-click='test()'> test </button>
+		<p>You chose <b>{{user_name}}</b></p>
+		<p>{{myWelcome}}</p>
 
 	</body>
 </html>
