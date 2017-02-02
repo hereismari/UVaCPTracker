@@ -18,7 +18,7 @@
 
 	</head>
 
-	<body ng-app="uvacp" ng-controller="uvacp_ctrl">
+	<body ng-app="uvacp" ng-controller="uvacpCtrl">
 
 		<nav class="{{active}}" ng-click="$event.preventDefault()">
 			<p href="#" class="home">Insert here your UVA user name:</p>
@@ -26,7 +26,7 @@
             <a href='#'>Don't know your ID?</a>
 		</nav>
 
-		<button ng-click='test()'> test </button>
+		<input class="btn-primary" type="submit" value="submit" ng-click='submitChanges()'>
 		<p>You chose <b>{{user_name}}</b></p>
 		<p>{{myWelcome}}</p>
 
