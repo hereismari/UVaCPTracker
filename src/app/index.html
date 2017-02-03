@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="uvacp">
+
+	<head>
+		<meta charset="utf-8"/>
+
+        <title>UVa Competitive Programing Tracker</title>
+
+        <!-- Libraries -->
+        <script type='text/javascript' src='libs/jquery.js'></script>
+        <script type='text/javascript' src='libs/angular.js'></script>
+        <script type='text/javascript' src='libs/angular-route.min.js'></script>
+
+        <!-- Scripts -->
+        <script type='text/javascript' src='app.js'></script>
+
+        <!-- views -->
+        <script type='text/javascript' src='views/main/main.js'></script>
+        <script type='text/javascript' src='views/login/login.js'></script>
+
+        <!-- directives -->
+        <script type='text/javascript' src='directives/chapter/chapter.js'></script>
+
+        <!-- Style -->
+        <link rel='stylesheet' type='text/css' href='views/main/main.css'>
+        <link rel='stylesheet' type='text/css' href='views/login/login.css'>
+        <link rel='stylesheet' type='text/css' href='directives/chapter/chapter.css'>
+
+	</head>
+
+	<body>
+      <div ng-view></div>
+
+  </body>
+
+</html>

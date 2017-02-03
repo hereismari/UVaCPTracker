@@ -1,0 +1,9 @@
+<nav class="{{active}}" ng-click="$event.preventDefault()">
+	<p href="#" class="home">Insert here your UVA user name:</p>
+        <input type='text' ng-model='user_name'</input>
+        <a href='#'>Don't know your ID?</a>
+</nav>
+
+<input class="btn-primary" type="submit" value="submit" ng-click='submitChanges()'>
+<p>You chose <b>{{user_name}}</b></p>
+<p>{{myWelcome}}</p>
