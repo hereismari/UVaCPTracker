@@ -14,17 +14,15 @@ angular.module('uvacp').controller('MainController',
             var user_id = response.data;
             var url_subs = 'http://uhunt.felix-halim.net/api/subs-user/' + user_id;
             $http.get(url_subs).then(function(submssions) {
-                $scope.myWelcome = submssions.data;
+                $scope.my_subs = JSON.parse(JSON.stringify(submssions.data));
             });
         });
     });
 
     $http.get("http://uhunt.felix-halim.net/api/cpbook/3")
         .then(function(response) {
-            $scope.myWelcome2 = response.data;
+            $scope.chapters = JSON.parse(JSON.stringify(response.data));
         });
-
-    
 
     $scope.changeView = function(view) {
         $location.path('/' + view);

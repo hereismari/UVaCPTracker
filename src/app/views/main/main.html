@@ -1,8 +1,10 @@
 <h1> IM THE MAIN </h1>
 
-<p>{{myWelcome}}</p>
+<p>{{my_subs}}</p>
 
 <h1> DIV </h1>
-<p>{{myWelcome2}}</p>
+<p>{{chapters}}</p>
 
-<chapter></chapter>
+<div ng-repeat='ch in chapters track by $index'>
+	<chapter data='{{ch}}'></chapter>
+</div>

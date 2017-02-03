@@ -11,7 +11,7 @@ angular.module('uvacp', ['ngRoute']).
        return {
            restrict: 'E',
            transclude: true,
-           scope: {},
+           scope: { data: '=' },
            controller: 'ChapterController',
            templateUrl: 'directives/chapter/chapter.html',
            replace: true
