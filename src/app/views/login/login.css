@@ -1,3 +1,34 @@
-p {
-  color: black;
+body {
+  font-family: monospace;
+  background: #e2e1e0;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+#main {
+  margin-top: 10%;
+}
+
+html {
+  display:table;
+  width:100%;
+}
+
+#login {
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+#track button {
+  text-align: left;
+  margin-top: 2%;
+}
+
+#about {
+  text-align: justify;
+}
+
+a {
+  font-size: 15px;
 }

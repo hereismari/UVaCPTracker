@@ -1,13 +1,13 @@
 angular.module('uvacp').controller('MainController',
     ['$scope', '$location', 'WebRequest', function($scope, $location, WebRequest) {
 
-    console.log( "App Loaded!", $scope );
+    $scope.title = '';
+    $scope.chapter_data = '';
 
     // get cp3
     var cp3_promise = WebRequest.get("files/cp3.json");
     cp3_promise.then(function(response) {
         $scope.chapters = response.data;
-        console.log(response.data);
         $scope.preprocessProblemStatus();
     });
 
@@ -22,7 +22,6 @@ angular.module('uvacp').controller('MainController',
         var url_id = 'http://uhunt.felix-halim.net/api/uname2uid/' + obj.value;
         var url_id_promise = WebRequest.get(url_id);
         url_id_promise.then(function(response) {
-            console.log(response.data);
             if(!response.data) {
                   $scope.changeView();
             }
@@ -47,7 +46,8 @@ angular.module('uvacp').controller('MainController',
               'arr': res,
               'total': $scope.size(res),
               'accepted': 0,
-              'tried': 0 };
+              'tried': 0,
+              'index': i};
         }
     };
 
@@ -73,11 +73,10 @@ angular.module('uvacp').controller('MainController',
 
     // make calculations
     $scope.calculateRate = function() {
-      console.log('vai');
-      var i;
-      for(i = 0; i < $scope.my_data['subs'].length; i++) {
-          $scope.updateProblemStatus($scope.my_data['subs'][i]);
-      }
+        var i;
+        for(i = 0; i < $scope.my_data['subs'].length; i++) {
+            $scope.updateProblemStatus($scope.my_data['subs'][i]);
+        }
     };
 
     $scope.updateProblemStatus = function(data) {
@@ -92,7 +91,6 @@ angular.module('uvacp').controller('MainController',
             var p_status = chapter_info['arr'][pid];
 
             if(p_status) {
-                console.log(pid);
                 if(new_status == 90) {
                     if(p_status['status'] != 'accepted') {
                         if(p_status['status'] == 'tried') {
@@ -112,11 +110,50 @@ angular.module('uvacp').controller('MainController',
         }
     };
 
+    $scope.getColor = function(pid) {
+        var i;
+        for(i = 0; i < $scope.chapters.length; i++) {
+
+            var title = $scope.chapters[i]['title'];
+            var chapter_info = $scope.problems_status[title];
+
+            var problem = chapter_info['arr'][pid];
+
+            if(!problem) { continue; }
+
+            var status = problem['status'];
+
+            if(status == 'accepted') {
+                return '#CCFFCC'; // green
+            }
+            else if(status == 'tried') {
+                return '#FFFFB2'; // yellow
+            }
+            else {
+                return 'white';
+            }
+        }
+    };
+
     $scope.getRate = function(title) {
         var chapter_info = $scope.problems_status[title];
         var res = ((1.0 * chapter_info['accepted'])/chapter_info['total']) * 100.0;
         var rounded_res = Math.round(res * 100) / 100;
         return rounded_res;
+    };
+
+    $scope.updateTitle = function(title) {
+        console.log(title);
+        $scope.title = title;
+        $scope.chapter_data = $scope.getChapterData();
+        console.log($scope.chapter_data);
+    };
+
+    $scope.getChapterData = function() {
+        if($scope.title) {
+            return $scope.chapters[$scope.problems_status[$scope.title]['index']];
+        }
+        else { return; }
     };
 
     $scope.changeView = function(view) {
