@@ -6,7 +6,7 @@ body {
   text-align: center;
 }
 
-
+/* Button hover */
 .btn-default {
   transition: background-color 1s;
 }
@@ -15,18 +15,9 @@ body {
   background-color: #d6d6ff;
 }
 
-a {
-  color: #8585F8;
-}
-
 #main {
-  text-align: center;
+  text-align: left;
   margin-top: 10%;
-}
-
-html {
-  display:table;
-  width:100%;
 }
 
 #login {
@@ -36,13 +27,12 @@ html {
   margin-bottom: 5%;
 }
 
-.container button {
-  float: right;
+#login_left {
+  margin-top: 2%;
 }
 
-#login_left {
-  text-align: justify;
-  margin-top: 2%;
+.container button {
+  float: right;
 }
 
 #error {
@@ -53,11 +43,8 @@ html {
   margin-bottom: 2%;
 }
 
-
-#about {
-  text-align: justify;
-}
-
 a {
+  color: #8585F8;
+  margin: 0%;
   font-size: 15px;
 }
