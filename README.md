@@ -7,7 +7,7 @@ problems of the [Competitive Programming](http://cpbook.net/) a user has
 already solved.
 
 This extension uses the [uhunt api](http://uhunt.felix-halim.net/api) to get
-the data, but is not related to UVa or Uhunt anyhow.
+the data, but is not related to UVa, Uhunt or CP3 anyhow.
 
 ![image](https://github.com/mari-linhares/UVaCPTracker/blob/master/images/image1.png)
 
