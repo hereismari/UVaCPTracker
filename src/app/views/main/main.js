@@ -1,5 +1,5 @@
 angular.module('uvacp').controller('MainController',
-    ['$scope', '$location', 'WebRequest', function($scope, $location, WebRequest) {
+    ['$scope', '$location', 'WebRequest', '$route', function($scope, $location, WebRequest, $route) {
 
     $scope.title = '';
     $scope.chapter_data = '';
@@ -14,7 +14,6 @@ angular.module('uvacp').controller('MainController',
     // get submissions
     chrome.storage.local.get('value', function(obj) {
         if(!obj.value) {
-            console.log('here');
             $scope.changeView();
         }
 
@@ -24,7 +23,7 @@ angular.module('uvacp').controller('MainController',
         var url_id_promise = WebRequest.get(url_id);
         url_id_promise.then(function(response) {
             if(!response.data) {
-                  $scope.changeView();
+                $scope.changeView();
             }
             var user_id = response.data;
             var url_subs = 'http://uhunt.felix-halim.net/api/subs-user/' + user_id;
@@ -81,9 +80,10 @@ angular.module('uvacp').controller('MainController',
     };
 
     $scope.updateProblemStatus = function(data) {
-        var i;
         var pid = data[1];
         var new_status = data[2];
+
+        var i;
         for(i = 0; i < $scope.chapters.length; i++) {
 
             var title = $scope.chapters[i]['title'];
@@ -113,7 +113,7 @@ angular.module('uvacp').controller('MainController',
 
     $scope.getColor = function(pid) {
         var i;
-        for(i = 0; i < $scope.chapters.length; i++) {
+        for (i = 0; i < $scope.chapters.length; i++) {
 
             var title = $scope.chapters[i]['title'];
             var chapter_info = $scope.problems_status[title];
@@ -144,31 +144,29 @@ angular.module('uvacp').controller('MainController',
     };
 
     $scope.updateTitle = function(title) {
-        console.log(title);
         $scope.title = title;
         $scope.chapter_data = $scope.getChapterData();
-        console.log($scope.chapter_data);
     };
 
     $scope.getChapterData = function() {
         if($scope.title) {
             return $scope.chapters[$scope.problems_status[$scope.title]['index']];
         }
-        else { return; }
+        else {
+            return;
+        }
     };
 
-
-    // TODO(mariannelm): fix bug, 'change username' Button just works
-    // if is clicked twice
     $scope.changeView = function(view) {
         chrome.storage.local.set({'value':''}, function(obj) {
             $location.path('/' + view);
+            $route.reload(); // this fixes the 'two clicks' bug
         });
     };
 
     $scope.size = function(data) {
         var size = 0;
-        for(key in data) { size += 1; }
+        for (key in data) { size += 1; }
         return size;
     };
 

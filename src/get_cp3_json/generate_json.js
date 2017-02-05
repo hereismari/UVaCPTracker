@@ -8,11 +8,13 @@ function getCP3(body) {
     var url = 'http://uhunt.felix-halim.net/api/cpbook/3';
     $.ajax({ url: url, async: false}).done(function(response) {
 
-        console.log(response);
+        body.append($('<h1>Old Json</h1>'));
         body.append($('<p>' + JSON.stringify(response) + '</p>'));
 
         var res = [];
         res = solve(response);
+
+        body.append($('<h1>New Json</h1>'));
         body.append($('<p>' + JSON.stringify(res) + '</p>'));
     });
 }
@@ -23,7 +25,6 @@ function solve(data) {
 
     var i;
     for (i = 0; i < data.length; i++) {
-        //console.log(data);
         if (data[i]['title']) {
             res.push({
                 'title': data[i]['title'],
@@ -42,11 +43,12 @@ function solve(data) {
 
                 $.ajax({ url: url, async: false}).done(function(response) {
                     aux.push({
-                      'pid': response['pid'],
-                      'title': response['title']
+                        'pid': response['pid'],
+                        'title': response['title']
                     });
                 });
             }
+
             aux_map['arr'] = aux;
             res.push(aux_map);
         }
