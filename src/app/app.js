@@ -10,19 +10,16 @@ angular.module('uvacp', ['ngRoute', 'angular-loading-bar', 'ngAnimate', 'angular
           controller: 'LoginController',
           css: 'views/login/login.css' })
       .otherwise({ redirectTo: '/' });
-   }]);/*run(function($rootScope, $location) {
+   }]).run(function($rootScope, $location) {
       // register listener to watch route changes
-      $rootScope.$on("$routeChangeStart", function(event, next, current) {
-          chrome.storage.sync.get('value', function(obj) {
-              console.log(obj.value);
+      $rootScope.$on("$locationChangeSuccess", function(event) {
+          chrome.storage.local.get('value', function(obj) {
               if(obj.value) {
-                if(next.templateUrl != '/main') {
                   $location.path('/main');
-                }
               }
               else {
-                $location.path('/');
+                  $location.path('/');
               }
           });
       });
-  });*/
+  });

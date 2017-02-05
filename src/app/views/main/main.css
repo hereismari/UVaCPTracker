@@ -23,7 +23,7 @@ body {
 }
 
 #menu button:hover {
-    background-color: #CCFFCC;
+  background-color: #d6d6ff;
 }
 
 .chapter-box {
@@ -38,13 +38,14 @@ body {
 }
 
 #chapter_modal h4 {
-    font-size: 12px;
-    margin-left: 2%;
+  font-size: 12px;
+  margin-left: 2%;
 }
 
 #chapter_modal p, a {
-    font-size: 10px;
-    margin-left: 2%;
+  font-size: 10px;
+  margin-left: 2%;
+  color: black;
 }
 
 #chapter_modal button {

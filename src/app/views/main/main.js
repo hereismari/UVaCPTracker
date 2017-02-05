@@ -12,8 +12,9 @@ angular.module('uvacp').controller('MainController',
     });
 
     // get submissions
-    chrome.storage.sync.get('value', function(obj) {
+    chrome.storage.local.get('value', function(obj) {
         if(!obj.value) {
+            console.log('here');
             $scope.changeView();
         }
 
@@ -127,7 +128,7 @@ angular.module('uvacp').controller('MainController',
                 return '#CCFFCC'; // green
             }
             else if(status == 'tried') {
-                return '#FFFFB2'; // yellow
+                return '#f39e8b'; // red
             }
             else {
                 return 'white';
@@ -156,8 +157,13 @@ angular.module('uvacp').controller('MainController',
         else { return; }
     };
 
+
+    // TODO(mariannelm): fix bug, 'change username' Button just works
+    // if is clicked twice
     $scope.changeView = function(view) {
-        $location.path('/' + view);
+        chrome.storage.local.set({'value':''}, function(obj) {
+            $location.path('/' + view);
+        });
     };
 
     $scope.size = function(data) {

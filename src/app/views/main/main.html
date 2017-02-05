@@ -1,44 +1,44 @@
 <!-- ########## HEADER ############### -->
+  <nav class='navbar navbar-default' id='menu_wrapper'>
+    <div class='container-fluid' id='menu'>
+  		<h4>Hi, {{ my_data.name }} :)</h4>
+  		<button class='btn btn-default' ng-click='changeView()'>Change username</a>
+      </button>
+    </div>
+  </nav>
 
-<nav class='navbar navbar-default' id='menu_wrapper'>
-  <div class='container-fluid' id='menu'>
-		<h4>Hi, {{ my_data.name }} :)</h4>
-		<button class='btn btn-default' ng-click='changeView()'>Change username</button>
+  <!-- ########## CHAPTER BOXES ############### -->
+  <div class='row'>
+  	<div class='row col-md-8 col-md-offset-2'>
+  			<div class='col-sm-4 col-md-4' ng-repeat='data in chapters track by $index'>
+  			  <div class='thumbnail chapter-box' ng-click='updateTitle(data.title)' data-toggle='modal' data-target='#chapter_modal'>
+  			    <p>{{ data.title }}</p>
+  			    <div class='caption'>
+  			      <h3>{{ getRate(data.title) }}%, {{ problems_status[data.title]['accepted'] }}/{{ problems_status[data.title]['total'] }}</h3>
+  						<h4>tried: {{ problems_status[data.title]['tried'] }}<h4>
+  			    </div>
+  			  </div>
+  			</div>
+  	</div>
   </div>
-</nav>
 
-<!-- ########## CHAPTER BOXES ############### -->
-<div class='row'>
-	<div class='row col-md-8 col-md-offset-2'>
-			<div class='col-sm-4 col-md-4' ng-repeat='data in chapters track by $index'>
-			  <div class='thumbnail chapter-box' ng-click='updateTitle(data.title)' data-toggle='modal' data-target='#chapter_modal'>
-			    <p>{{ data.title }}</p>
-			    <div class='caption'>
-			      <h3>{{ getRate(data.title) }}%, {{ problems_status[data.title]['accepted'] }}/{{ problems_status[data.title]['total'] }}</h3>
-						<h4>tried: {{ problems_status[data.title]['tried'] }}<h4>
-			    </div>
-			  </div>
-			</div>
-	</div>
-</div>
+  <!-- ########## MODAL TEMPLATE ############### -->
 
-<!-- ########## MODAL TEMPLATE ############### -->
-
-<script type='text/ng-template' id='chapter_box.html'>
-		<div ng-if='data.arr'>
-			<div class='row'>
-				<h4>{{ data.title }}</h4>
-					<div ng-repeat='data in data.arr' ng-include="'chapter_box.html'"></div>
-			</div>
-		</div>
-		<div ng-if='!data.arr'>
-			<button type='button' class='btn btn-info' ng-style="{'background-color': getColor(data['pid'])}">
-				<a ng-href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={{ data['pid'] }}">
-					{{ data['pid'] }}-{{ data['title'] }}
-				</a>
-			</button>
-		</div>
-</script>
+  <script type='text/ng-template' id='chapter_box.html'>
+  		<div ng-if='data.arr'>
+  			<div class='row'>
+  				<h4>{{ data.title }}</h4>
+  					<div ng-repeat='data in data.arr' ng-include="'chapter_box.html'"></div>
+  			</div>
+  		</div>
+  		<div ng-if='!data.arr'>
+  			<button type='button' class='btn btn-info' ng-style="{'background-color': getColor(data['pid'])}">
+  				<a ng-href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem={{ data['pid'] }}">
+  					{{ data['pid'] }}-{{ data['title'] }}
+  				</a>
+  			</button>
+  		</div>
+  </script>
 
 <!-- Modal -->
 <div id="chapter_modal" class="modal fade" role="dialog">

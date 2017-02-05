@@ -1,35 +1,42 @@
-<div id='main' class='row'>
+<div id='main' class='container'>
 
-		<div id='login' class='row col-md-8 col-md-offset-2'>
-			<div class='row'>
-				<label href="#" class="home">
-					Insert your UVA user name:
-				</label>
+		<div id='login' class='col-md-8 col-md-offset-2'>
+			<div id='login_left'>
+				<label>Insert your UVA username:</label>
+				<input type='text' ng-model='user_name' placeholder='username'</input>
 
-				<input type='text' ng-model='user_name' placeholder='user name'</input>
+				<button class='btn btn-large btn-default' ng-click='submit()'>Track CP3!</button>
+
+				<div ng-show='error_message' id='error'>
+					<p><strong>Error: </strong>{{error_message}}</p>
+				</div>
 			</div>
-			<div class='row' id='track'>
-				<button class='btn btn-default' ng-click='submit()'>Track CP3!</button>
-			</div>
+
 		</div>
 
 	<div id='about' class='row col-md-8 col-md-offset-2'>
+
 		<p>
 			This project is not related to <a href='https://uva.onlinejudge.org/'>UVa</a> or <a href='http://uhunt.felix-halim.net/'>uHunt</a> anyhow.
-		 	Although this extension was only possible because of the <a href='http://uhunt.felix-halim.net/api'>uHunt API</a>, so thank you uHunt for that :)!
+		 	Although it was only possible because of the <a href='http://uhunt.felix-halim.net/api'>uHunt API</a>, so thank you uHunt for that :)!
 		</p>
 
 		<p>
-			This extension was made to help others and to have a little fun, for this reason the code is available
-			at <a href='https://github.com/mari-linhares/UVaCPTracker'>GitHub</a>! If you think it's awesome give the project
-			a star <span class="glyphicon glyphicon-star" aria-hidden="true"></span>.
+			This extension was made to help others and to have a little fun, for this
+			reason the code is available at <a href='https://github.com/mari-linhares/UVaCPTracker'>GitHub</a>!
+			If you think it's awesome, feel free to star the project
+			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>.
 		</p>
+
 		<p>
-			Have ideas for new features? Found bugs? <a href='https://github.com/mari-linhares/UVaCPTracker/issues'>Let me know!</a>
+			Have ideas for new features? Found bugs?
+			<a href='https://github.com/mari-linhares/UVaCPTracker/issues'>Let me know!</a>
 		</p>
 
 		<p>
 			Thank you, <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>!
 		</p>
+
 	</div>
+
 </div>

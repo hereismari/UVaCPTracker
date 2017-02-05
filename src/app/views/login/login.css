@@ -6,7 +6,21 @@ body {
   text-align: center;
 }
 
+
+.btn-default {
+  transition: background-color 1s;
+}
+
+.btn-default:hover {
+  background-color: #d6d6ff;
+}
+
+a {
+  color: #8585F8;
+}
+
 #main {
+  text-align: center;
   margin-top: 10%;
 }
 
@@ -16,14 +30,29 @@ html {
 }
 
 #login {
+  height: 100px;
+  border-style: double;
+  border-width: 2px;
   margin-bottom: 5%;
-  text-align: center;
 }
 
-#track button {
-  text-align: left;
+.container button {
+  float: right;
+}
+
+#login_left {
+  text-align: justify;
   margin-top: 2%;
 }
+
+#error {
+  color: red;
+}
+
+#track {
+  margin-bottom: 2%;
+}
+
 
 #about {
   text-align: justify;
