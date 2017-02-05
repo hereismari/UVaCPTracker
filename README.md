@@ -1,6 +1,6 @@
 # UVa Competitive Programming Tracker
 
-## Work in progress
+## Version 1.0.0
 
 UVaCPTracker is a chrome extension that makes easier to keep track of how many
 problems of the [Competitive Programming](http://cpbook.net/) a user has
