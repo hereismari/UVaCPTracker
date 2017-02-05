@@ -2,6 +2,8 @@
 
 ## Version 1.0.0
 
+[Download it now!!!](https://chrome.google.com/webstore/detail/uvacptracker/gfmgmeaeihnpbdncnhembmmafcdipfpa)
+
 UVaCPTracker is a chrome extension that makes easier to keep track of how many
 problems of the [Competitive Programming](http://cpbook.net/) a user has
 already solved.
