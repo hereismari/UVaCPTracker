@@ -1,6 +1,6 @@
 # UVa Competitive Programming Tracker
 
-## Version 1.0.0
+## Version 1.0.1
 
 [Download it now!!!](https://chrome.google.com/webstore/detail/uvacptracker/gfmgmeaeihnpbdncnhembmmafcdipfpa)
 
