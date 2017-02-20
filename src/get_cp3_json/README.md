@@ -11,18 +11,24 @@ I decided to make a new JSON of the CP3 problems using the original CP3 data
 you can get trough the API.
 This new JSON is an array that has 9 maps (chapters) with the format:
 
-'title': String
-'arr:' [ data ]
+{ 
+  'title': String,sads
+  'arr:' [ data ] 
+}
 
 Where data is a map which can have the items:
 
-'title': String
-'pid': Integer (Problem ID)
+{
+  'title': String
+  'pid': Integer (Problem ID)
+}
 
 or
 
-'title': String
-'arr:' [ data ]
+{
+  'title': String
+  'arr:' [ data ]
+}
 
 To generate this new JSON of CP3, just open index.html in a browser, it can take
 some time because it makes a lot of HTTP requests in order to get this new data,
