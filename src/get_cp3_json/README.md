@@ -12,21 +12,23 @@ you can get trough the API.
 This new JSON is an array that has 9 maps (chapters) with the format:
 
 { 
-  'title': String,sads
+  'title': String,  
   'arr:' [ data ] 
 }
 
 Where data is a map which can have the items:
 
 {
-  'title': String
+  'title': String,
+  
   'pid': Integer (Problem ID)
 }
 
 or
 
 {
-  'title': String
+  'title': String,
+  
   'arr:' [ data ]
 }
 
