@@ -11,7 +11,7 @@ angular.module('uvacp').controller('LoginController',
 
             var url_id = 'http://uhunt.felix-halim.net/api/uname2uid/' + $scope.user_name;
 
-            var url_id_promise = WebRequest.get(url_id);
+            var url_id_promise = WebRequest.get(url_id, true);
             url_id_promise.then(function(response) {
                 if(!response.data) {
                     $scope.error_message = 'Invalid username';

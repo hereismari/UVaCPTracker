@@ -5,7 +5,7 @@ angular.module('uvacp').controller('MainController',
     $scope.chapter_data = '';
 
     // get cp3
-    var cp3_promise = WebRequest.get("files/cp3.json");
+    var cp3_promise = WebRequest.get("files/cp3.json", false);
     cp3_promise.then(function(response) {
         $scope.chapters = response.data;
         $scope.preprocessProblemStatus();
@@ -20,14 +20,14 @@ angular.module('uvacp').controller('MainController',
         $scope.user_name = obj.value;
 
         var url_id = 'http://uhunt.felix-halim.net/api/uname2uid/' + obj.value;
-        var url_id_promise = WebRequest.get(url_id);
+        var url_id_promise = WebRequest.get(url_id, true);
         url_id_promise.then(function(response) {
             if(!response.data) {
                 $scope.changeView();
             }
             var user_id = response.data;
             var url_subs = 'http://uhunt.felix-halim.net/api/subs-user/' + user_id;
-            var user_subs_promise = WebRequest.get(url_subs);
+            var user_subs_promise = WebRequest.get(url_subs, true);
             user_subs_promise.then(function(response) {
                 $scope.my_data = response.data;
                 $scope.calculateRate();
